@@ -31,8 +31,10 @@ const SecondPage = () => (
 const GET_COMMENTS = gql`
   query getcomments {
     allComments {
-      name
-      message
+      data {
+        name
+        message
+      }
     }
   }
 `
@@ -45,10 +47,10 @@ function List() {
   if (error) {
     return <div>Error! {error.message}</div>
   }
-
+  console.log(data)
   return (
     <div>
-      {data.allComments.map(({ message, name }, i) => {
+      {data.allComments.data.map(({ message, name }, i) => {
         return (
           <blockquote key={i}>
             {message}

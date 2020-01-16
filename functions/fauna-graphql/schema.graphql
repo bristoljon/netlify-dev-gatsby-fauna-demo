@@ -2,7 +2,7 @@ type Comment {
   message: String!
   name: String!
 }
+
 type Query {
   allComments: [Comment!]
-  # commentssByCompletedFlag(completed: Boolean!): [Todo!]
 }
